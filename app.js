@@ -3,18 +3,19 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
-
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var app = express();
+const dotenv = require('dotenv');
+dotenv.config();
 
 const mongoose = require('mongoose');
 
 //do not show to the query to the console
 mongoose.set('strictQuery', false);
-
 //Database connection
-connectionString = 'mongodb+srv://mocherif:cherif@cluster0.mprb3oj.mongodb.net/?retryWrites=true&w=majority'
+//connectionString = 'mongodb+srv://mocherif:cherif@cluster0.mprb3oj.mongodb.net/?retryWrites=true&w=majority'
+const connectionString = `mongodb+srv://${process.env.DATABASE_USERNAME}:${process.env.DATABASE_PASSWORD}@${process.env.URL_DATABASE}/${process.env.URL_DATABASE_PARAMS}`;
 mongoose.connect(connectionString, {
   useNewUrlParser: true,
   useUnifiedTopology: true

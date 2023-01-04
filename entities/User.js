@@ -12,4 +12,4 @@ const schema = new mongoose.Schema({
     
 });
 
-module.exports = mongoose.model("datas",schema);
+module.exports = mongoose.model("TariaDataColect",schema);
