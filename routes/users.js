@@ -8,15 +8,17 @@ router.post('/', async function(req, res, next) {
   const 
   {
     fullName, dateNaissance, lieuNaissance, adresse,
-    tel, numeroPermis, expPermis
+    tel, numeroPermis, expPermis,personneCharge
   } = req.body
 
+  console.log(personneCharge)
   await new User ({
     fullName,
     dateNaissance,
     lieuNaissance,
     adresse,
     tel,
+    personneCharge,
     numeroPermis,
     expPermis,
   }).save({ upsert: true })

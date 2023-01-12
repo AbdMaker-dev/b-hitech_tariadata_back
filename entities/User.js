@@ -6,6 +6,7 @@ const schema = new mongoose.Schema({
     lieuNaissance: String,
     adresse: String,
     tel: String,
+    personneCharge: String,
     numeroPermis: String,
     expPermis: Date,
     created: { type: Date, default: Date.now },
